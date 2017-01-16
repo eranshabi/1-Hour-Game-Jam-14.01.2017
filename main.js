@@ -17,6 +17,7 @@ GameState.prototype.preload = function() {
 
 // Setup the example
 GameState.prototype.create = function() {
+    initGlobals();
     game.add.tileSprite(0, 90, 1000, 600, 'back');
     // Set stage background to something sky colored
     this.game.stage.backgroundColor = 0x4488cc;
@@ -203,7 +204,6 @@ GameState.prototype.update = function() {
             game.paused = true;
 setTimeout(() => {
     game.paused = false;
-
             this.game.state.start("game");
 },
 1 * 1000);
@@ -278,6 +278,15 @@ var enemiesToIgnore = 2;
 var enemyIntervals = 3000;
 var powerupTime = 0;
 var powerupIntervals = 2000;
+
+function initGlobals() {
+    playerSize = 1;
+    enemyTime = 4000;
+    enemiesToIgnore = 2;
+    enemyIntervals = 3000;
+    powerupTime = 0;
+    powerupIntervals = 2000;
+}
 
 // This function should return true when the player activates the "go left" control
 // In this case, either holding the right arrow or tapping or clicking on the left
